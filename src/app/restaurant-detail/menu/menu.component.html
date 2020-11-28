@@ -1,0 +1,20 @@
+<!-- async vai se inscrever no menu que é um observable, vai pegar os items e iterar em ngFor
+  [menuItem]=item pego o item da linha atual da sequencia
+-->
+<!--INÍCIO DO MENU -->
+
+<div class="col-md-9 col-xs-12">
+
+  <div class="menu-item-info-box">
+
+    <mt-menu-item *ngFor="let item of menu | async" [menuItem]="item" (add)="shoppingCart.addItem($event)">
+    </mt-menu-item>
+
+  </div>
+  <!-- /.info-box -->
+
+</div>
+<div class="col-md-3 col-xs-12">
+  <mt-shopping-cart #shoppingCart></mt-shopping-cart>
+</div>
+<!-- FIM DO MENU -->
