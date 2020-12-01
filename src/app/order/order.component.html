@@ -4,8 +4,6 @@
 
 <section class="content">
   <section class="invoice">
-    {{form.valid}}
-    {{form.value | json}}
 
     <form #form="ngForm" novalidate>
       <div class="row">
@@ -38,7 +36,7 @@
         </div>
         <div class="col-sm-3 col-xs-6">
           <mt-input-container>
-            <input type="text" class="form-control" name="optional" ngModel placeholder="Complemento"
+            <input type="text" class="form-control" name="optionalAddress" ngModel placeholder="Complemento"
               autocomplete="off">
           </mt-input-container>
         </div>
