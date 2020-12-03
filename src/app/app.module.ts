@@ -3,7 +3,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -26,6 +26,7 @@ import { OrderService } from './order/order.service';
 import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { RatingComponent } from './shared/rating/rating.component';
+
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { RatingComponent } from './shared/rating/rating.component';
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
