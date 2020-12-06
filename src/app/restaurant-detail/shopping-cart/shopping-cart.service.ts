@@ -1,8 +1,13 @@
+import { Injectable } from "@angular/core"
+import { NotificationSevice } from "app/shared/messages/notification.service"
 import { MenuItem } from "../menu-item/menu-item.model"
 import { CartItem } from "./cart-item.model"
 
+@Injectable()
 export class ShoppingCartService {
   items: CartItem[] = []
+
+  constructor(private notificationService: NotificationSevice) { }
 
   clear() {
     this.items = []
@@ -15,6 +20,7 @@ export class ShoppingCartService {
     } else {
       this.items.push(new CartItem(item))
     }
+    this.notificationService.notify(`Você adicionou o item ${ item.name }`)
   }
 
   //add qty itens do carrinho
@@ -31,7 +37,8 @@ export class ShoppingCartService {
   }
 
   removeItem(item: CartItem) {
-    this.items.splice(this.items.indexOf(item), 1)
+    this.items.splice(this.items.indexOf(item), 1);
+    this.notificationService.notify(`Você removeu o item ${ item.menuItem.name }`);
   }
 
   //mudo o array de items para um array de valores e somo o valor anterior com o novo gerando o total
