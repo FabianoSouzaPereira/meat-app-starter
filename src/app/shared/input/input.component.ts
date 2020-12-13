@@ -11,6 +11,7 @@ export class InputComponent implements OnInit {
 
   @Input() label: string
   @Input() errorMessage: string
+  @Input() showTip: boolean = true
 
   input: any
 
