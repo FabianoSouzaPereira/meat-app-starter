@@ -205,9 +205,6 @@
       "description": "Fatia de bolo de morango",
       "price": 5.9,
       "restaurantId": "tasty-treats"
-    },
-    {
-      "id": "h-Poqw8"
     }
   ],
   "reviews": [
@@ -476,18 +473,7 @@
           "quantity": 1,
           "menuId": "capp"
         }
-      ],
-      "id": 6
-    },
-    {
-      "email": "juliana@gmail.com",
-      "password": "juliana23",
-      "id": 7
-    },
-    {
-      "email": "juliana@gmail.com",
-      "password": "juliana23",
-      "id": 8
+      ]
     }
   ]
 }
