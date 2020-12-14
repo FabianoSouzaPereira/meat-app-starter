@@ -7,6 +7,7 @@ import { CartItem } from '../restaurant-detail/shopping-cart/cart-item.model';
 import { Order, OrderItem } from './order.model';
 import { Optional } from '@angular/core';
 import { Router } from '@angular/router';
+import 'rxjs/add/operator/do';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class OrderComponent implements OnInit {
   orderForm: FormGroup;
 
   delivery: number = 8;
+
+  orderId: string;
 
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 
@@ -82,6 +85,10 @@ export class OrderComponent implements OnInit {
     this.orderService.remove(item)
   }
 
+  isOrderCompleted(): boolean {
+    return this.orderId !== undefined
+  }
+
   /* Pegar a compra e adicionar os items do carrinho
   *    pegando um array de cartItems e transformando em um array de OrderItems
   *    e pegando esses items a atribuindo ao objeto de compras.
@@ -92,7 +99,7 @@ export class OrderComponent implements OnInit {
       .map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id))
 
     this.orderService.checkOrder(order)
-
+      .do((orderId: string) => { this.orderId = orderId })
       .subscribe((orderId: string) => {
         this.router.navigate([ '/order-summary' ])
         console.log(`Compra concluída: ${ orderId }`)
